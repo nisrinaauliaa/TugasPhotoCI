@@ -17,6 +17,3 @@
     <?= $this->include('layouts/scripts') ?>
 </body>
 </html>
-
-
-

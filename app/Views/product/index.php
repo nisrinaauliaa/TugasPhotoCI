@@ -31,13 +31,15 @@
                 <td>
 
                 <td>
-                    <div class="btn-group " role="group " aria-label="Basic example ">
+                    <div class="btn-group" role="group " aria-label="Basic example ">
                         <a href="/product/<?= $item['id'] ?>/edit" class="btn btn-info text-white ">
                             <i class='bx bx-pencil'></i> Edit
                         </a>
                         <form action="/product/<?= $item['id'] ?>" method="post" onsubmit="return confirm(`Are you sure?`)">
                             <input type="hidden" name="_method" value="delete" />
-                            <button type="submit" class="btn btn-danger text-white">Delete</button>
+                            <button type="submit" class="btn btn-danger text-white">
+                            <i class='bx bx-trash'></i>Delete
+                            </button>
                         </form>
                     </div>
             </tr>
