@@ -1,19 +1,17 @@
-<!doctype html>
-<html lang="en">
+<html>
+    <head>
+        <?= $this->include('layouts/head') ?>
+    </head>
+    <body>
+        <?= $this->include('layouts/navbar') ?>
 
-<head>
-    <?= $this->include('layouts/head') ?>
-</head>
+        <main role="main " class="container">
+            <?= $this->include('layouts/header') ?>
 
-<body>
-    <?= $this->include('layouts/header') ?>
+            <?= $this->renderSection('content') ?>
+        </main>
+        <?= $this->include('layouts/footer') ?>
 
-    <main role="main " class="container">
-
-    <?= $this->renderSection('content') ?>
-    </main>
-
-    <?= $this->include('layouts/footer') ?>
-    <?= $this->include('layouts/scripts') ?>
-</body>
+        <?= $this->include('layouts/scripts') ?>
+    </body>
 </html>

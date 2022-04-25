@@ -2,35 +2,49 @@
 
 <?= $this->section('content') ?>
 <div class="container mt-5">
-<div class="row mb-4">
-<div class="col-12">
-    
-    <form action="/product/<?= $data['id'] ?>/update" method="post">
-        <div class="mb-3">
-        <input type="hidden" name="_method" value="put" />
-        <label class="form-label" for="name">Product Name</label>
-        <br />
-        <input class="form-control" type="text" id="name" placeholder="Input product name" name="name" value="<?= $data['name'] ?>" />
+    <div class="row mb-4">
+        <div class="col-12">
+            <h5 class="mt-5 mb-4">Update product <?= $data['name'] ?></h5>
+
+            <form action="/product/<?= $data['id'] ?>" method="post" enctype="multipart/form-data">
+                <input type="hidden" name="_method" value="put" />
+                <input type="hidden" name="oldphoto" value= "<?=$data['photo']?>" />
+
+                <div class="form-group">
+                    <label for="example-product-name">Product Name</label>
+                    <input type="text" class="form-control" id="example-product-name" aria-describedby="emailHelp" 
+                        placeholder="Enter product name" required name="name" value="<?= $data['name'] ?>">
+                </div>
+
+                <div class="form-group">
+                    <label for="example-product-stock">Stock</label>
+                    <input type="number" min="1" class="form-control" id="example-product-stock" aria-describedby="emailHelp" 
+                        placeholder="Enter product stock" required name="stock" value="<?= $data['stock'] ?>">
+                </div>
+
+                <div class="form-group">
+                    <label for="example-product-price">Price</label>
+                    <input type="number" min="1" class="form-control" id="example-product-price" aria-describedby="emailHelp" 
+                        placeholder="Enter product price" required name="price" value="<?= $data['price'] ?>">
+                </div>
+
+                <div class="form-group">
+                    <label for="example-product-category">Category</label>
+                    <select class="form-control" name="category" id="example-product-category">
+                        <option value="utilities" <?= $data['category'] == "utilities" ? "selected" : "" ?>>Utilities</option>
+                        <option value="food_and_beverages" <?= $data['category'] == "food_and_beverages" ? "selected" : "" ?>> Food & Beverages</option>
+                        <option value="books" <?= $data['category'] == "books" ? "selected" : "" ?>>Books</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="example-product-photo">Photo</label>
+                    <input type="file" class="form-control" id="example-product-photo" aria-describedby="photoHelp" name="photo">
+                </div>
+
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
         </div>
-        <br />
-        <label for="stock">Stock</label>
-        <br />
-        <input class="form-control" type="number" min="1" id="stock" placeholder="Input product stock" name="stock" value="<?= $data['stock'] ?>" />
-        <br /> 
-        <label for="price">Price</label>
-        <br />
-        <input class="form-control" type="number" min="0" id="price" placeholder="Input product price" name="price" value="<?= $data['price'] ?>" />
-        <br />
-        <label for="category">Category</label>
-        <br />
-        <select class="form-select" name="category" id="category">
-            <option value="utilities" <?php $data['category'] == "utilities" ? "selected" : "" ?>>Utilities</option>
-            <option value="food_and_beverages" <?php $data['category'] == "food_and_beverages" ? "selected" : "" ?>> Food & Beverages</option>
-            <option value="books" <?php $data['category'] == "books" ? "selected" : "" ?>>Books</option>
-        </select>
-        
-        <br />
-        <br />
-        <button type="submit" class="btn btn-success" >Submit</button>
-    </form>
+    </div>
+</div>
 <?= $this->endSection() ?>

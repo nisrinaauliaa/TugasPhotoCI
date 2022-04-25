@@ -32,7 +32,11 @@ $routes->setAutoRoute(true);
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
 $routes->get('/', 'HelloController::index');
-$routes->resource('product');
+$routes->group('', ['filter' => 'authMiddleware'], function($routes) {
+    $routes->resource('product');
+});
+$routes->resource('register');
+$routes->resource('login');
 
 /*
  * --------------------------------------------------------------------
